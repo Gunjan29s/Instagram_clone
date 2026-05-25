@@ -1,0 +1,66 @@
+Options -MultiViews
+DirectoryIndex index.php
+RewriteEngine On
+
+# Redirect old file-based URLs to clean URLs.
+RewriteRule ^views/activity\.php$ index.php [E=APP_ROUTE:activity,L,QSA]
+RewriteRule ^views/appearance\.php$ index.php [E=APP_ROUTE:appearance,L,QSA]
+RewriteRule ^views/create_post\.php$ index.php [E=APP_ROUTE:create-post,L,QSA]
+RewriteRule ^views/edit_profile\.php$ index.php [E=APP_ROUTE:edit-profile,L,QSA]
+RewriteRule ^views/explore\.php$ index.php [E=APP_ROUTE:explore,L,QSA]
+RewriteRule ^views/follow\.php$ index.php [E=APP_ROUTE:follow,L,QSA]
+RewriteRule ^views/forget\.php$ index.php [E=APP_ROUTE:forgot-password,L,QSA]
+RewriteRule ^views/home\.php$ index.php [E=APP_ROUTE:home,L,QSA]
+RewriteRule ^views/like\.php$ index.php [E=APP_ROUTE:like,L,QSA]
+RewriteRule ^views/logout\.php$ index.php [E=APP_ROUTE:logout,L,QSA]
+RewriteRule ^views/messages\.php$ index.php [E=APP_ROUTE:messages,L,QSA]
+RewriteRule ^views/notification\.php$ index.php [E=APP_ROUTE:notifications,L,QSA]
+RewriteRule ^views/post\.php$ index.php [E=APP_ROUTE:post,L,QSA]
+RewriteRule ^views/profile\.php$ index.php [E=APP_ROUTE:profile,L,QSA]
+RewriteRule ^views/reels\.php$ index.php [E=APP_ROUTE:reels,L,QSA]
+RewriteRule ^views/report_problem\.php$ index.php [E=APP_ROUTE:report-problem,L,QSA]
+RewriteRule ^views/saved\.php$ index.php [E=APP_ROUTE:saved,L,QSA]
+RewriteRule ^views/search\.php$ index.php [E=APP_ROUTE:search,L,QSA]
+RewriteRule ^views/settings\.php$ index.php [E=APP_ROUTE:settings,L,QSA]
+RewriteRule ^views/sign_in\.php$ index.php [E=APP_ROUTE:sign-in,L,QSA]
+RewriteRule ^views/sign_up\.php$ index.php [E=APP_ROUTE:sign-up,L,QSA]
+RewriteRule ^views/single_post\.php$ index.php [E=APP_ROUTE:single-post,L,QSA]
+RewriteRule ^views/switch_accounts\.php$ index.php [E=APP_ROUTE:switch-accounts,L,QSA]
+RewriteRule ^views/tagged\.php$ index.php [E=APP_ROUTE:tagged,L,QSA]
+RewriteRule ^views/ - [F,L]
+
+RewriteRule ^admin/index\.php$ index.php [E=APP_ROUTE:admin,L,QSA]
+RewriteRule ^admin/(comments|dashboard|follows|likes|logout|messages|notifications|posts|register|reports|users)\.php$ index.php [E=APP_ROUTE:admin/$1,L,QSA]
+
+# Route public controller endpoints through the front controller whitelist.
+RewriteRule ^controllers/(add_comment|block_user|delete_comment|delete_message|delete_post|delete_story|get_share_users|handle_follow_request|mark_story_seen|message_request_action|remove_follower|send_share_message|socket_auth|socket_message_api|toggle_follow|toggle_like|toggle_save|unread_counts)\.php$ index.php [E=APP_CONTROLLER:$1,L,QSA]
+
+# Block private application files from public access.
+RewriteRule ^(config|controllers|models|storage|runtime|vendor)(/|$) - [F,L]
+RewriteRule ^(composer\.(json|lock)|\.env|\.env\.example)$ - [F,L]
+
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/css "access plus 7 days"
+    ExpiresByType text/javascript "access plus 7 days"
+    ExpiresByType application/javascript "access plus 7 days"
+    ExpiresByType image/jpeg "access plus 30 days"
+    ExpiresByType image/png "access plus 30 days"
+    ExpiresByType image/gif "access plus 30 days"
+    ExpiresByType image/webp "access plus 30 days"
+    ExpiresByType video/mp4 "access plus 30 days"
+</IfModule>
+
+<IfModule mod_headers.c>
+    <FilesMatch "\.(css|js|jpg|jpeg|png|gif|webp|mp4|webm)$">
+        Header set Cache-Control "public, max-age=604800"
+    </FilesMatch>
+</IfModule>
+
+# Serve real files and folders directly.
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Send every clean route to the front controller.
+RewriteRule ^ index.php [L,QSA]

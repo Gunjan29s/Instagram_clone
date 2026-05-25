@@ -1,0 +1,35 @@
+body { background:#fafafa; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; }
+        .card { border:1px solid #dbdbdb; max-width:380px; width:100%; }
+        .insta-input { background:#fafafa; border:1px solid #dbdbdb; border-radius:4px; padding:10px 12px; font-size:13px; width:100%; outline:none; }
+        .insta-input:focus { border-color:#a8a8a8; background:#fff; }
+        .btn-insta { background:#0095f6; color:#fff; border:none; border-radius:8px; padding:10px; width:100%; font-weight:600; font-size:14px; cursor:pointer; }
+        .btn-insta:hover { opacity:0.85; }
+        .logo-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 8px;
+        }
+        .logo { font-family:'Billabong', cursive; font-size:32px; line-height:1; }
+        .divider { display:flex; align-items:center; gap:12px; margin:12px 0; }
+        .divider hr { flex:1; border-color:#dbdbdb; margin:0; }
+        .captcha-art {
+            height:56px;
+            border:1px solid #dbdbdb;
+            border-radius:4px;
+            display:grid;
+            place-items:center;
+            background:
+                radial-gradient(circle at 22% 50%, rgba(255,109,109,.72) 0 25%, transparent 26%),
+                radial-gradient(circle at 38% 50%, rgba(135,219,110,.72) 0 25%, transparent 26%),
+                radial-gradient(circle at 54% 50%, rgba(95,156,235,.64) 0 25%, transparent 26%),
+                radial-gradient(circle at 70% 50%, rgba(170,126,230,.58) 0 25%, transparent 26%),
+                #f8f8f8;
+            color:#050505;
+            font-size:27px;
+            font-weight:700;
+            letter-spacing:5px;
+            font-family:Consolas,'Courier New',monospace;
+            user-select:none;
+        }

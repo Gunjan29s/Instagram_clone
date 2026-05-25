@@ -1,0 +1,14 @@
+# WordPress blog - push nahi karna
+blog/
+
+# Vendor dependencies
+vendor/
+
+# User uploaded media
+uploads/posts/
+uploads/stories/
+uploads/avatars/
+
+# System files
+.DS_Store
+Thumbs.db

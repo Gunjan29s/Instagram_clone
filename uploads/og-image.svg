@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="1" y2="0">
+      <stop stop-color="#feda75"/>
+      <stop offset=".35" stop-color="#fa7e1e"/>
+      <stop offset=".62" stop-color="#d62976"/>
+      <stop offset="1" stop-color="#4f5bd5"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#fafafa"/>
+  <rect x="420" y="135" width="360" height="360" rx="92" fill="url(#g)"/>
+  <rect x="505" y="220" width="190" height="190" rx="56" fill="none" stroke="#fff" stroke-width="28"/>
+  <circle cx="600" cy="315" r="48" fill="none" stroke="#fff" stroke-width="28"/>
+  <circle cx="675" cy="240" r="22" fill="#fff"/>
+  <text x="600" y="555" text-anchor="middle" font-family="Arial, sans-serif" font-size="54" font-weight="700" fill="#262626">Instagram Clone</text>
+</svg>

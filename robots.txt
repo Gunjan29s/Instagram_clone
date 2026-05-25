@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /controllers/
+Disallow: /config/
+Disallow: /models/
+Disallow: /vendor/
+Allow: /
+
+Sitemap: /insta_out/sitemap.xml
