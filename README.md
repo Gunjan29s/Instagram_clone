@@ -31,7 +31,6 @@ A full-featured Instagram-like social media web application built with PHP, MySQ
 | Frontend | HTML, CSS, JavaScript |
 | Real-time | Node.js + Socket.io |
 | Mailing | PHPMailer |
-| Blog | WordPress |
 
 ---
 
@@ -115,15 +114,6 @@ Instagram_clone/
 Access the admin panel at:
 ```
 http://localhost/Instagram_clone/admin/
-```
-
----
-
-## 📌 Notes
-
-- `uploads/` folder ke andar user media store hoti hai — ye `.gitignore` mein hai
-- `blog/` folder WordPress installation hai
-- Real-time messaging ke liye Node.js server chalna zaroori hai
 
 ---
 
